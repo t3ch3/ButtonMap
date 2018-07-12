@@ -8,6 +8,8 @@ using MobileCoreServices;
 using AVFoundation;
 using CoreMedia;
 
+using Cirrious.FluentLayouts.Touch;
+
 namespace JustButtons
 {
     public class ButtonMaintenanceScreen
@@ -72,39 +74,13 @@ namespace JustButtons
             MediaPicker.FinishedPickingMedia += Handle_FinishedPickingMedia;
             MediaPicker.Canceled += Handle_Canceled;
 
-            //create back button
-            CGRect frameBackButton = new CGRect(700, 100, 250, 100);
-            BackButton = new UIButton(frameBackButton);
-            BackButton.TouchUpInside += CloseScreen;
-            BackButton.SetTitle("Back", UIControlState.Normal);
-            BackButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-           
-            Screen.Add(BackButton); //add back button to screen
-            BackButton.Layer.BorderColor = ButtonBorderColour.CGColor;
-            BackButton.Layer.BorderWidth = ButtonBorderWidth;
-            BackButton.BackgroundColor = ButtonBackgroundColour;
-            BackButton.Layer.CornerRadius = ButtonCornerRadius;
-
-            //create save button
-            CGRect frameSaveButton = new CGRect(700, 250, 250, 100);
-            SaveButton = new UIButton(frameSaveButton);
-            SaveButton.BackgroundColor = UIColor.Red;
-            SaveButton.TouchUpInside += Save;
-            SaveButton.SetTitle("Save", UIControlState.Normal);
-            SaveButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            Screen.Add(SaveButton); //add save button to screen
-            SaveButton.Layer.BorderColor = ButtonBorderColour.CGColor;
-            SaveButton.Layer.BorderWidth = ButtonBorderWidth;
-            SaveButton.BackgroundColor = ButtonBackgroundColour;
-            SaveButton.Layer.CornerRadius = ButtonCornerRadius;
-
+            //1. create views
             //create video button
-            CGRect frameVideoButton = new CGRect(50, 100, 250, 100);
-            VideoButton = new UIButton(frameVideoButton);
+            VideoButton = new UIButton();
             VideoButton.BackgroundColor = UIColor.Green;
             VideoButton.SetTitle("Choose a video for \n the button to play", UIControlState.Normal);
             VideoButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-           
+
             //when video button clicked - open the media picker native interface
             VideoButton.TouchUpInside += (s, e) =>
             {
@@ -114,7 +90,7 @@ namespace JustButtons
                     MediaPicker.MediaTypes = new string[] { UTType.Movie, UTType.Video }; //vids?
                     Screen.PresentViewControllerAsync(MediaPicker, true);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     //if the device doesn't have any videos, pop up an alert box with a message
                     Console.WriteLine(ex.Message);
@@ -128,7 +104,7 @@ namespace JustButtons
                     alert.Show();
                 }
             };
-            Screen.Add(VideoButton); //add video button to screen
+
             VideoButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             VideoButton.Layer.BorderWidth = ButtonBorderWidth;
             VideoButton.BackgroundColor = ButtonBackgroundColour;
@@ -138,12 +114,10 @@ namespace JustButtons
             VideoButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center; //center text
 
             //create image button
-            CGRect frameImageButton = new CGRect(50, 250, 250, 100);
-            ImageButton = new UIButton(frameImageButton);
+            ImageButton = new UIButton();
             ImageButton.BackgroundColor = UIColor.Green;
             ImageButton.SetTitle("Choose an image for \n the button thumbnail", UIControlState.Normal);
             ImageButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-
             //when image button clicked - open the media picker native interface
             ImageButton.TouchUpInside += (s, e) =>
             {
@@ -172,51 +146,51 @@ namespace JustButtons
             ImageButton.BackgroundColor = ButtonBackgroundColour;
             ImageButton.LineBreakMode = UILineBreakMode.WordWrap;//allow multiple lines for text inside video button
             ImageButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center; //center text
-            Screen.Add(ImageButton); //add image button to screen
             ImageButton.Layer.CornerRadius = ButtonCornerRadius;
 
-            //create colour box
-            CGRect frameColourBox = new CGRect(50, 400, 250, 100);
-            ColourBox = new UIView(frameColourBox);
-            ColourBox.Layer.BorderWidth = ColourBoxBorderWidth;
-            Screen.Add(ColourBox); //add colour box to screen
-            ColourBox.Layer.CornerRadius = ButtonCornerRadius;
-
             //create image box
-            CGRect frameImageBox = new CGRect(330, 250, 250, 100);
-            ImageBox = new UIImageView(frameImageBox);
+            ImageBox = new UIImageView();
             ImageBox.Layer.BorderWidth = ColourBoxBorderWidth;
-            Screen.Add(ImageBox); //add image box to screen
             ImageBox.Layer.CornerRadius = ButtonCornerRadius;
             ImageBox.ClipsToBounds = true;
 
-            //create video thumbnail box
-            CGRect frameVideoBox = new CGRect(330, 100, 250, 100);
-            VideoBox = new UIImageView(frameVideoBox);
+            //create video box
+            VideoBox = new UIImageView();
             VideoBox.Layer.BorderWidth = ColourBoxBorderWidth;
-            Screen.Add(VideoBox); //add video box to screen
+            VideoBox.Layer.CornerRadius = ButtonCornerRadius;
+            VideoBox.ClipsToBounds = true;
 
-            //color sliders
-            CGRect frameRedSlider = new CGRect(330, 400, 100, 100);
-            RedSlider = new UISlider(frameRedSlider);
-            RedSlider.ValueChanged += UpdateBorderColor;
-            Screen.Add(RedSlider);//add red slider to screen
+            //create back button
+            BackButton = new UIButton();
+            BackButton.TouchUpInside += CloseScreen;
+            BackButton.SetTitle("Back", UIControlState.Normal);
+            BackButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
+            Screen.Add(BackButton); //add back button to screen
+            BackButton.Layer.BorderColor = ButtonBorderColour.CGColor;
+            BackButton.Layer.BorderWidth = ButtonBorderWidth;
+            BackButton.BackgroundColor = ButtonBackgroundColour;
+            BackButton.Layer.CornerRadius = ButtonCornerRadius;
 
-            CGRect frameGreenSlider = new CGRect(480, 400, 100, 100);
-            GreenSlider = new UISlider(frameGreenSlider);
-            GreenSlider.ValueChanged += UpdateBorderColor;
-            Screen.Add(GreenSlider);//add green slider to screen
+            //create save button
+            SaveButton = new UIButton();
+            SaveButton.BackgroundColor = UIColor.Red;
+            SaveButton.TouchUpInside += Save;
+            SaveButton.SetTitle("Save", UIControlState.Normal);
+            SaveButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
+            Screen.Add(SaveButton); //add save button to screen
+            SaveButton.Layer.BorderColor = ButtonBorderColour.CGColor;
+            SaveButton.Layer.BorderWidth = ButtonBorderWidth;
+            SaveButton.BackgroundColor = ButtonBackgroundColour;
+            SaveButton.Layer.CornerRadius = ButtonCornerRadius;
 
-            CGRect frameBlueSlider = new CGRect(630, 400, 100, 100);
-            BlueSlider = new UISlider(frameBlueSlider);
-            BlueSlider.ValueChanged += UpdateBorderColor;
-            Screen.Add(BlueSlider); //add blue slider to screen
+            //create colour box
+            ColourBox = new UIView();
+            ColourBox.Layer.BorderWidth = ColourBoxBorderWidth;
+            ColourBox.Layer.CornerRadius = ButtonCornerRadius;
 
             //create general button
-            CGRect frameGeneralButton = new CGRect(50, 550, 250, 100);
-            GeneralButton = new UIButton(frameGeneralButton);
+            GeneralButton = new UIButton();
             GeneralButton.BackgroundColor = UIColor.Green;
-
             //open the general settings modal.
             //pass some app data
             GeneralButton.TouchUpInside += (o, s) =>
@@ -232,11 +206,100 @@ namespace JustButtons
             };
             GeneralButton.SetTitle("JustButtons Settings", UIControlState.Normal);
             GeneralButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            Screen.Add(GeneralButton); //add general button to screen
             GeneralButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             GeneralButton.Layer.BorderWidth = ButtonBorderWidth;
             GeneralButton.BackgroundColor = ButtonBackgroundColour;
             GeneralButton.Layer.CornerRadius = ButtonCornerRadius;
+
+            //color sliders
+            RedSlider = new UISlider();
+            RedSlider.ValueChanged += UpdateBorderColor;
+
+            GreenSlider = new UISlider();
+            GreenSlider.ValueChanged += UpdateBorderColor;
+
+            BlueSlider = new UISlider();
+            BlueSlider.ValueChanged += UpdateBorderColor;
+
+            //2. add views to parent view
+            Screen.View.Add(VideoButton);
+            Screen.View.Add(ImageButton);
+            Screen.View.Add(ImageBox);
+            Screen.View.Add(VideoBox);
+            Screen.View.Add(BackButton);
+            Screen.View.Add(SaveButton);
+            Screen.Add(ColourBox);
+            Screen.Add(GeneralButton);
+            Screen.Add(RedSlider);
+            Screen.Add(GreenSlider);
+            Screen.Add(BlueSlider);
+
+            //3. call method on parent view
+            Screen.View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            //4. add constraints
+            Screen.View.AddConstraints(
+                VideoButton.AtTopOf(Screen.View, UIApplication.SharedApplication.StatusBarFrame.Height + 70),
+                VideoButton.AtLeftOf(Screen.View, 70),
+                VideoButton.WithRelativeWidth(Screen.View, 0.2f),
+                VideoButton.Height().EqualTo(100),
+
+                ImageButton.Below(VideoButton, 80),
+                ImageButton.WithSameLeft(VideoButton),
+                ImageButton.WithSameWidth(VideoButton),
+                ImageButton.WithSameHeight(VideoButton),
+
+                VideoBox.WithSameTop(VideoButton),
+                VideoBox.Left().EqualTo().RightOf(VideoButton).Plus(35),
+                VideoBox.WithRelativeWidth(Screen.View, 0.17f),
+                VideoBox.Height().EqualTo(100),
+
+                ImageBox.WithSameTop(ImageButton),
+                ImageBox.WithSameLeft(VideoBox),
+                ImageBox.WithSameWidth(VideoBox),
+                ImageBox.WithSameHeight(VideoBox),
+
+                BackButton.WithSameTop(VideoButton),
+                BackButton.AtRightOf(Screen.View, 70),
+                BackButton.WithSameWidth(VideoButton),
+                BackButton.WithSameHeight(VideoButton),
+
+                SaveButton.WithSameTop(ImageButton),
+                SaveButton.AtRightOf(Screen.View, 70),
+                SaveButton.WithSameWidth(VideoButton),
+                SaveButton.WithSameHeight(VideoButton),
+
+                ColourBox.Below(ImageButton, 80),
+                ColourBox.WithSameLeft(VideoButton),
+                ColourBox.WithSameWidth(VideoButton),
+                ColourBox.WithSameHeight(VideoBox),
+
+                GeneralButton.Below(ColourBox, 80),
+                GeneralButton.WithSameLeft(VideoButton),
+                GeneralButton.WithSameWidth(VideoButton),
+                GeneralButton.WithSameHeight(VideoButton),
+
+                RedSlider.WithSameTop(ColourBox),
+                RedSlider.Left().EqualTo().RightOf(ColourBox).Plus(35),
+                RedSlider.WithRelativeWidth(Screen.View, 0.11f),
+                RedSlider.WithSameHeight(ColourBox),
+
+                GreenSlider.WithSameTop(ColourBox),
+                GreenSlider.Left().EqualTo().RightOf(RedSlider).Plus(30),
+                GreenSlider.WithSameWidth(RedSlider),
+                GreenSlider.WithSameHeight(ColourBox),
+
+                BlueSlider.WithSameTop(ColourBox),
+                BlueSlider.Left().EqualTo().RightOf(GreenSlider).Plus(30),
+                BlueSlider.WithSameWidth(RedSlider),
+                BlueSlider.WithSameHeight(ColourBox)
+            );
+
+
+
+
+
+
         }
 
         /// <summary>

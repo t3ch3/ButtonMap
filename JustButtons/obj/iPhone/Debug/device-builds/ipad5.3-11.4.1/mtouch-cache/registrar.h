@@ -102,6 +102,7 @@
 	-(void) setSwipeRight:(UISwipeGestureRecognizer *)p0;
 	-(void) viewDidLoad;
 	-(void) didReceiveMemoryWarning;
+	-(void) viewDidLayoutSubviews;
 	-(void) swipedLeft:(UISwipeGestureRecognizer *)p0;
 	-(void) SwipedRight:(UISwipeGestureRecognizer *)p0;
 	-(BOOL) conformsToProtocol:(void *)p0;
