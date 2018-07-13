@@ -10,6 +10,8 @@ using CoreGraphics;
 using MediaPlayer;
 using Foundation;
 
+using Cirrious.FluentLayouts.Touch;
+
 namespace JustButtons
 {
     public partial class ViewController : UIViewController
@@ -53,6 +55,12 @@ namespace JustButtons
         UIPageControl PageControl;
         public const float PageControlWidth = 300;
 
+        //Hold button
+        UIButton HoldButton;
+
+        //Update cells
+        bool UpdateCells = true;
+
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -62,11 +70,6 @@ namespace JustButtons
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
-
-            //fixes orientation not resizing??//?
-            //View.AutoresizingMask = UIViewAutoresizing.FlexibleDimensions;
-            //divide one by 2, multiply other by 2????
-            //use autolayout on grid???
 
             //subscribe to button maintenance or general maintenance screens saving
             ButtonMaintenanceScreen.Saved += SaveButton;
@@ -89,35 +92,62 @@ namespace JustButtons
             //Display page
             CreateGrid();
             CalcRowsAndCols();
-            CalcCellsWidthAndHeight();
-            CreateCells();
+            //CalcCellsWidthAndHeight();
+            //CreateCells();
             CreateHoldButton();
             CreatePageControl();
 
             //change orientation
-            Foundation.NSNotificationCenter.DefaultCenter.AddObserver(new NSString("UIDeviceOrientationDidChangeNotification"), UpdateSize);
+            Foundation.NSNotificationCenter.DefaultCenter.AddObserver(new NSString("UIDeviceOrientationDidChangeNotification"), OrientationChange);
+        }
+
+        public override void DidReceiveMemoryWarning()
+        {
+            base.DidReceiveMemoryWarning();
+            // Release any cached data, images, etc that aren't in use.
+        }
+
+        //happens after frames are set from autolayout otherwise you get zero
+        public override void ViewDidLayoutSubviews()
+        {
+            if(UpdateCells)
+            {
+                //set the grid sizes
+                Console.WriteLine("view did layout subviews!");
+                GridH = Grid.Frame.Height;
+                GridW = Grid.Frame.Width;
+
+                //now can calc cells width and height and create
+                CalcCellsWidthAndHeight();
+                CreateCells();
+
+                UpdateCells = false;
+            }
         }
 
         /// <summary>
-        /// Executes when the devices orientation changes
+        /// Creates the hold button.
         /// </summary>
-        /// <param name="notification">Notification.</param>
-        private void UpdateSize(NSNotification notification)
+        public void CreateHoldButton()
         {
-            Console.WriteLine("oreintation changed");
+            //1. create view
+            HoldButton = new UIButton();
+            HoldButton.BackgroundColor = View.BackgroundColor;
+            HoldButton.TouchDown += HoldButton_TouchDown;
+            HoldButton.TouchUpInside += HoldButton_TouchUpInside;
 
-            // Landscape or Portrait 
-            Console.WriteLine(UIDevice.CurrentDevice.Orientation);
+            //2. add view to parent view
+            Add(HoldButton);
 
-            //get the screen width and height
-            Console.WriteLine(UIScreen.MainScreen.Bounds.Width);
-            Console.WriteLine(UIScreen.MainScreen.Bounds.Height);
+            //3. call method on parent view
+            View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
-            /*
-            ClearGrid();
-            CreateGrid();
-            CalcCellsWidthAndHeight();
-            CreateCells();*/
+            //4. add constraints
+            View.AddConstraints(
+                HoldButton.AtBottomOf(View),
+                HoldButton.Width().EqualTo(100),
+                HoldButton.Height().EqualTo(StatusBarH)
+            );
         }
 
         /// <summary>
@@ -125,23 +155,36 @@ namespace JustButtons
         /// </summary>
         public void CreatePageControl()
         {
-            //create pagecontrol
-            CGRect framePageControl = new CGRect((UIScreen.MainScreen.Bounds.Width / 2) - (300 / 2), UIScreen.MainScreen.Bounds.Height - GridPaddingBottom, 300, GridPaddingBottom); //make var
-            PageControl = new UIPageControl(framePageControl);
-
+            //1. create view
+            PageControl = new UIPageControl();
             PageControl.Pages = AppData.NumberOfPages;
             PageControl.PageIndicatorTintColor = UIColor.LightGray;
             PageControl.CurrentPageIndicatorTintColor = UIColor.Black;
             PageControl.UserInteractionEnabled = false; //stops user from changing page control with a tap
-            PageControl.CurrentPage = PageNum-1; //-1 because it starts at 0
+            PageControl.CurrentPage = PageNum - 1; //-1 because it starts at 0
 
-            Add(PageControl); //add page control to view
+            //2. add view to parent view
+            Add(PageControl);
+
+            //3. call method on parent view
+            View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            //4. add constraints
+            View.AddConstraints(
+                PageControl.AtBottomOf(View),
+                PageControl.Width().EqualTo(150),
+                PageControl.Height().EqualTo(StatusBarH),
+                PageControl.WithSameCenterX(View)
+            );
         }
-         
-        public override void DidReceiveMemoryWarning()
+
+        /// <summary>
+        /// Disposes of grid and cells.
+        /// </summary>
+        public void ClearGrid()
         {
-            base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
+            Grid.RemoveFromSuperview(); //remove grid from view
+            Grid.Dispose();
         }
 
         /// <summary>
@@ -150,16 +193,24 @@ namespace JustButtons
         /// </summary>
         public void CreateGrid()
         {
-            //set grid sizes to screen sizes
-            GridW = UIScreen.MainScreen.Bounds.Width;
-            //height applies padding to add space for hold & page indicators at bottom AND space for status bar at the top so it doesn't overlap
-            GridH = UIScreen.MainScreen.Bounds.Height - UIApplication.SharedApplication.StatusBarFrame.Height - GridPaddingBottom;
+            //1. create view
+            Grid = new UICollectionView(new CGRect(0, 0, 0, 0), new UICollectionViewLayout());
+            Grid.BackgroundColor = View.BackgroundColor;
 
-            CGRect gridFrame = new CGRect(0, StatusBarH, GridW, GridH);
-            Grid = new UICollectionView(gridFrame, new UICollectionViewLayout());
-            Grid.BackgroundColor = View.BackgroundColor; //set to same bg colour as screen
-            //add grid to view
-            View.AddSubview(Grid);
+            //2. add view to parent view
+            View.Add(Grid);
+
+            //3. call method on parent view
+            View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            //4. add constraints
+            View.AddConstraints(
+                //Grid.AtTopOf(View, UIApplication.SharedApplication.StatusBarFrame.Height),
+                Grid.AtTopOf(View, StatusBarH),//changing to statusbarh fixed it
+                Grid.AtLeftOf(View, 0),
+                Grid.AtRightOf(View, 0),
+                Grid.AtBottomOf(View, StatusBarH)
+            );
         }
 
         /// <summary>
@@ -281,6 +332,14 @@ namespace JustButtons
             }
         }
 
+        void OrientationChange(NSNotification notification)
+        {
+            UpdateCells = true;
+            Console.WriteLine("oreintation changed");
+            ClearGrid();
+            CreateGrid();
+        }
+
         /// <summary>
         /// Fires when a button is clicked
         /// If hold not true, then play the video path. If vid not found then...
@@ -350,22 +409,6 @@ namespace JustButtons
         }
 
         /// <summary>
-        /// Creates the hold button.
-        /// </summary>
-        public void CreateHoldButton()
-        {
-            //use grid padding bottom so it matches the space left by padding
-            CGRect frameHoldButton = new CGRect(0, UIScreen.MainScreen.Bounds.Height - GridPaddingBottom, GridPaddingBottom, GridPaddingBottom);
-            UIButton holdButton = new UIButton(frameHoldButton);
-            //holdButton.BackgroundColor = UIColor.Red;
-            holdButton.TouchDown += HoldButton_TouchDown; //subscribe method to button touched event
-            holdButton.TouchUpInside += HoldButton_TouchUpInside; //subscribe method to button released event
-
-            //add hold button to view
-            View.AddSubview(holdButton);
-        }
-
-        /// <summary>
         /// When hold button pressed set hold to true
         /// </summary>
         /// <param name="sender">Sender.</param>
@@ -388,15 +431,6 @@ namespace JustButtons
         }
 
         /// <summary>
-        /// Disposes of grid and cells.
-        /// </summary>
-        public void ClearGrid()
-        {
-            Grid.RemoveFromSuperview(); //remove grid from view
-            Grid.Dispose();
-        }
-
-        /// <summary>
         /// Fires when user swipes to left.
         /// It checks if already on last page, if yes doesn't do anything
         /// If not, it changes page num and and updates the page.
@@ -412,14 +446,16 @@ namespace JustButtons
                 //recreate page with new buttons
                 ClearGrid();
                 CreateGrid();
-                CreateCells();
+                //CreateCells();
 
                 //increment page control
                 PageControl.CurrentPage++;
 
                 //fixes ...
-                Add(PageControl); //add page indicator to view
-                CreateHoldButton();
+                //Add(PageControl); //add page indicator to view
+                //CreateHoldButton();
+
+                UpdateCells = true;
             }
             else
             {
@@ -442,14 +478,16 @@ namespace JustButtons
 
                 ClearGrid();
                 CreateGrid();
-                CreateCells();
+                //CreateCells();
 
                 //change page control
                 PageControl.CurrentPage--;
 
                 //fixes ...
-                Add(PageControl); //this brings back the page control but why is it REMOVED?!?!?!?!!
-                CreateHoldButton();
+                //Add(PageControl); //this brings back the page control but why is it REMOVED?!?!?!?!!
+                //CreateHoldButton();
+
+                UpdateCells = true;
             }
             else
             {
@@ -466,6 +504,8 @@ namespace JustButtons
         /// <param name="e">E.</param>
         public void SaveButton(object sender, EventArgs e)
         {
+            UpdateCells = true;
+
             Console.WriteLine("saving button inside view controller");
             //this sender??
 
@@ -499,7 +539,7 @@ namespace JustButtons
 
             ClearGrid();
             CreateGrid();
-            CreateCells();
+            //CreateCells();
         }
 
         /// <summary>

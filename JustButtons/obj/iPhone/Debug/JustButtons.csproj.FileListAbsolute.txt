@@ -1,5 +1,6 @@
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/JustButtons.exe
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/JustButtons.pdb
+/Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/Cirrious.FluentLayouts.Touch.dll
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/Newtonsoft.Json.dll
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/Newtonsoft.Json.xml
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/ibtool/_BundleResourceWithLogicalName.items
@@ -8,7 +9,7 @@
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/coremlc/_PartialAppManifest.items
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/coremlc/_BundleResourceWithLogicalName.items
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/optimized/
-/Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/JustButtons.csprojResolveAssemblyReference.cache
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/JustButtons.csproj.CoreCompileInputs.cache
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/JustButtons.exe
 /Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/JustButtons.pdb
+/Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/JustButtons.csprojResolveAssemblyReference.cache

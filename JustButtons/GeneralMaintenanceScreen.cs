@@ -6,6 +6,8 @@ using MediaPlayer;
 using Foundation;
 using System.Diagnostics;
 
+using Cirrious.FluentLayouts.Touch;
+
 namespace JustButtons
 {
     public class GeneralMaintenanceScreen
@@ -45,10 +47,18 @@ namespace JustButtons
             Screen = new UIViewController();
             Screen.View.BackgroundColor = UIColor.White;
 
-            //create dropdown
-            //list of values drop down contains
-            //ButtonsNum = { "2", "4", "6", "8" };
-            //PagesNum = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+            //1. create view
+            //pages label
+            PagesLabel = new UILabel();
+            PagesLabel.Text = "Number of pages:";
+            PagesLabel.TextColor = UIColor.Black;
+            PagesLabel.TextAlignment = UITextAlignment.Left;
+
+            //buttons label
+            ButtonsLabel = new UILabel();
+            ButtonsLabel.Text = "Number of buttons:";
+            ButtonsLabel.TextColor = UIColor.Black;
+            ButtonsLabel.TextAlignment = UITextAlignment.Left;
 
             //buttons per page dropdown
             ButtonsPickerModel = new PickerModel(ButtonsNum);
@@ -62,19 +72,10 @@ namespace JustButtons
             ButtonsPickerView = new UIPickerView();
             ButtonsPickerView.Model = ButtonsPickerModel;
             ButtonsPickerView.ShowSelectionIndicator = true;
-            ButtonsPickerView.Frame = new CoreGraphics.CGRect(250, 300, 60, 60);
+            //ButtonsPickerView.Frame = new CoreGraphics.CGRect(250, 300, 60, 60);
             ButtonsPickerView.BackgroundColor = UIColor.White;
             ButtonsPickerView.Layer.BorderColor = UIColor.Gray.CGColor;
             ButtonsPickerView.Layer.BorderWidth = 4.5f;
-            Screen.Add(ButtonsPickerView); //add picker to view
-
-            //label
-            CGRect frameButtonLabel = new CGRect(50, 280, 150, 100);
-            ButtonsLabel = new UILabel(frameButtonLabel);
-            ButtonsLabel.Text = "Number of buttons:";
-            ButtonsLabel.TextColor = UIColor.Black;
-            ButtonsLabel.TextAlignment = UITextAlignment.Right;
-            Screen.Add(ButtonsLabel); //add label to view
 
             //pages dropdown
             //create picker model, and add function event when it changes
@@ -90,44 +91,77 @@ namespace JustButtons
             PagesPickerView = new UIPickerView();
             PagesPickerView.Model = PagesPickerModel;
             PagesPickerView.ShowSelectionIndicator = true;
-            PagesPickerView.Frame = new CoreGraphics.CGRect(250, 150, 60, 60);
+            //PagesPickerView.Frame = new CoreGraphics.CGRect(250, 150, 60, 60);
             PagesPickerView.BackgroundColor = UIColor.White;
             PagesPickerView.Layer.BorderColor = UIColor.Gray.CGColor;
             PagesPickerView.Layer.BorderWidth = 4.5f;
-            Screen.Add(PagesPickerView); //add picker to view
-            //label
-            CGRect framePagesLabel = new CGRect(50, 120, 150, 100);
-            PagesLabel = new UILabel(framePagesLabel);
-            PagesLabel.Text = "Number of pages:";
-            PagesLabel.TextColor = UIColor.Black;
-            PagesLabel.TextAlignment = UITextAlignment.Right;
-            Screen.Add(PagesLabel); //add label to view
 
             //create back button
-            CGRect frameBackButton = new CGRect(700, 100, 250, 100);
-            BackButton = new UIButton(frameBackButton);
+            BackButton = new UIButton();
             BackButton.BackgroundColor = UIColor.Red;
             BackButton.TouchUpInside += CloseScreen;
             BackButton.SetTitle("Back", UIControlState.Normal);
             BackButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            Screen.Add(BackButton); //add back button to screen
             BackButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             BackButton.Layer.BorderWidth = ButtonBorderWidth;
             BackButton.BackgroundColor = ButtonBackgroundColour;
             BackButton.Layer.CornerRadius = ButtonCornerRadius;
 
             //create save button
-            CGRect frameSaveButton = new CGRect(700, 250, 250, 100);
-            SaveButton = new UIButton(frameSaveButton);
+            SaveButton = new UIButton();
             SaveButton.BackgroundColor = UIColor.Red;
             SaveButton.TouchUpInside += Save;
             SaveButton.SetTitle("Save", UIControlState.Normal);
             SaveButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
-            Screen.Add(SaveButton); //add save button to screen
             SaveButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             SaveButton.Layer.BorderWidth = ButtonBorderWidth;
             SaveButton.BackgroundColor = ButtonBackgroundColour;
             SaveButton.Layer.CornerRadius = ButtonCornerRadius;
+
+            //2. add view to parent view
+            Screen.View.Add(PagesLabel);
+            Screen.View.Add(ButtonsLabel);
+            Screen.View.Add(ButtonsPickerView);
+            Screen.View.Add(PagesPickerView);
+            Screen.View.Add(BackButton);
+            Screen.View.Add(SaveButton);
+
+            //3. call method on parent view
+            Screen.View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
+
+            //4. add constraints
+            Screen.View.AddConstraints(
+                PagesLabel.WithSameTop(BackButton),
+                PagesLabel.AtLeftOf(Screen.View, 70),
+                PagesLabel.WithRelativeWidth(Screen.View, 0.2f),
+                //PagesLabel.Width().EqualTo(150),
+                PagesLabel.Height().EqualTo(45),
+
+                ButtonsLabel.WithSameTop(SaveButton),
+                ButtonsLabel.WithSameLeft(PagesLabel),
+                ButtonsLabel.WithSameWidth(PagesLabel),
+                ButtonsLabel.WithSameHeight(PagesLabel),
+
+                ButtonsPickerView.WithSameTop(ButtonsLabel),
+                ButtonsPickerView.Left().EqualTo().RightOf(ButtonsLabel).Plus(30),
+                ButtonsPickerView.Width().EqualTo(60),
+                ButtonsPickerView.Height().EqualTo(60),
+
+                PagesPickerView.WithSameTop(PagesLabel),
+                PagesPickerView.WithSameLeft(ButtonsPickerView),
+                PagesPickerView.WithSameWidth(ButtonsPickerView),
+                PagesPickerView.WithSameHeight(ButtonsPickerView),
+
+                BackButton.AtTopOf(Screen.View, UIApplication.SharedApplication.StatusBarFrame.Height + 70),
+                BackButton.AtRightOf(Screen.View, 70),
+                BackButton.WithRelativeWidth(Screen.View, 0.2f),
+                BackButton.Height().EqualTo(100),
+
+                SaveButton.Below(BackButton, 80),
+                SaveButton.WithSameRight(BackButton),
+                SaveButton.WithSameWidth(BackButton),
+                SaveButton.WithSameHeight(BackButton)
+            );
         }
 
         public void SetDropDowns()
