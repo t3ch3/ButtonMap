@@ -12,6 +12,7 @@ namespace JustButtons
         public int ButtonsPerPage = 6;
         public int NumberOfPages = 3;
         public List<ButtonData> Buttons = new List<ButtonData>();
+        public float BorderWidth = 5.5f;
 
         public AppData()
         {

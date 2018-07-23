@@ -28353,7 +28353,7 @@ _mono_aot_file_info:
 	.long 552,4632,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0
-	.byte 22,36,105,242,65,187,225,174,176,45,240,207,147,64,63,251
+	.byte 151,16,189,62,75,81,87,223,5,121,169,200,195,200,7,204
 	.globl _mono_aot_module_System_Xml_Linq_info
 	.align 3
 _mono_aot_module_System_Xml_Linq_info:

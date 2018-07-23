@@ -15,7 +15,7 @@ namespace JustButtons
     public class ButtonMaintenanceScreen
     {
         //button variables
-        public float ButtonBorderWidth = 4.5f;
+        public float ButtonBorderWidth = 5.5f;
         public UIColor ButtonBorderColour = UIColor.Gray;
         public UIColor ButtonBackgroundColour = UIColor.White;
         public const int ButtonCornerRadius = 25;
@@ -46,13 +46,19 @@ namespace JustButtons
 
         //media pickers
         public UIImagePickerController MediaPicker;
-        public UIButton ImageButton; 
-        public UIButton VideoButton; 
+        public UIButton ImageButton;
+        public UIButton VideoButton;
         public UIImageView ImageBox; //displays image picked inside box
         public UIImageView VideoBox; //displays video thumbnail in box
 
         //movie player - used to get the video thumbnail
         public MPMoviePlayerController MoviePlayer = new MPMoviePlayerController();
+
+        //
+        UILabel VideoButtonTitle;
+        UILabel ImageButtonTitle;
+        UILabel ColourBoxTitle;
+        UILabel SettingsButtonTitle;
 
         public ButtonMaintenanceScreen()
         {
@@ -67,10 +73,12 @@ namespace JustButtons
 
             //create media picker
             MediaPicker = new UIImagePickerController();
+            //MediaPicker.VideoExportPreset = AVAssetExportSessionPreset.HighestQuality.ToString();
+            //System.Diagnostics.Debug.WriteLine(MediaPicker.VideoExportPreset);
             MediaPicker.SourceType = UIImagePickerControllerSourceType.PhotoLibrary;
             MediaPicker.MediaTypes = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.PhotoLibrary);
             MediaPicker.ImageExportPreset = UIImagePickerControllerImageUrlExportPreset.Current;
-                       
+
             MediaPicker.FinishedPickingMedia += Handle_FinishedPickingMedia;
             MediaPicker.Canceled += Handle_Canceled;
 
@@ -78,7 +86,7 @@ namespace JustButtons
             //create video button
             VideoButton = new UIButton();
             VideoButton.BackgroundColor = UIColor.Green;
-            VideoButton.SetTitle("Choose a video for \n the button to play", UIControlState.Normal);
+            VideoButton.SetTitle("Choose a video for\nthe button \nto play", UIControlState.Normal);
             VideoButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
 
             //when video button clicked - open the media picker native interface
@@ -108,15 +116,16 @@ namespace JustButtons
             VideoButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             VideoButton.Layer.BorderWidth = ButtonBorderWidth;
             VideoButton.BackgroundColor = ButtonBackgroundColour;
-            VideoButton.Layer.CornerRadius = ButtonCornerRadius;
-
             VideoButton.LineBreakMode = UILineBreakMode.WordWrap;//allow multiple lines for text inside video button
-            VideoButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center; //center text
+            //VideoButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center; //center text
+            VideoButton.VerticalAlignment = UIControlContentVerticalAlignment.Center;
+            VideoButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center;
+            VideoButton.Layer.CornerRadius = ButtonCornerRadius;
 
             //create image button
             ImageButton = new UIButton();
             ImageButton.BackgroundColor = UIColor.Green;
-            ImageButton.SetTitle("Choose an image for \n the button thumbnail", UIControlState.Normal);
+            ImageButton.SetTitle("Choose an image for\nthe button thumbnail", UIControlState.Normal);
             ImageButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
             //when image button clicked - open the media picker native interface
             ImageButton.TouchUpInside += (s, e) =>
@@ -150,15 +159,17 @@ namespace JustButtons
 
             //create image box
             ImageBox = new UIImageView();
-            ImageBox.Layer.BorderWidth = ColourBoxBorderWidth;
+            ImageBox.Layer.BorderWidth = ButtonBorderWidth;
             ImageBox.Layer.CornerRadius = ButtonCornerRadius;
             ImageBox.ClipsToBounds = true;
+            ImageBox.Layer.BorderColor = UIColor.Gray.CGColor;
 
             //create video box
             VideoBox = new UIImageView();
-            VideoBox.Layer.BorderWidth = ColourBoxBorderWidth;
+            VideoBox.Layer.BorderWidth = ButtonBorderWidth;
             VideoBox.Layer.CornerRadius = ButtonCornerRadius;
             VideoBox.ClipsToBounds = true;
+            VideoBox.Layer.BorderColor = UIColor.Gray.CGColor;
 
             //create back button
             BackButton = new UIButton();
@@ -185,8 +196,9 @@ namespace JustButtons
 
             //create colour box
             ColourBox = new UIView();
-            ColourBox.Layer.BorderWidth = ColourBoxBorderWidth;
+            ColourBox.Layer.BorderWidth = ButtonBorderWidth;
             ColourBox.Layer.CornerRadius = ButtonCornerRadius;
+            ColourBox.Layer.BorderColor = UIColor.Gray.CGColor;
 
             //create general button
             GeneralButton = new UIButton();
@@ -202,14 +214,17 @@ namespace JustButtons
 
                 GeneralMaintenanceScreen.NumberOfPages = this.NumberOfPages;
                 GeneralMaintenanceScreen.ButtonsPerPage = this.ButtonsPerPage;
+                GeneralMaintenanceScreen.BordersThickness = this.ButtonBorderWidth;
                 GeneralMaintenanceScreen.SetDropDowns();
             };
-            GeneralButton.SetTitle("JustButtons Settings", UIControlState.Normal);
+            GeneralButton.SetTitle("JustButtons\nSettings", UIControlState.Normal);
             GeneralButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
             GeneralButton.Layer.BorderColor = ButtonBorderColour.CGColor;
             GeneralButton.Layer.BorderWidth = ButtonBorderWidth;
             GeneralButton.BackgroundColor = ButtonBackgroundColour;
             GeneralButton.Layer.CornerRadius = ButtonCornerRadius;
+            GeneralButton.LineBreakMode = UILineBreakMode.WordWrap;//allow multiple lines for text inside video button
+            GeneralButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center; //center text
 
             //color sliders
             RedSlider = new UISlider();
@@ -220,6 +235,35 @@ namespace JustButtons
 
             BlueSlider = new UISlider();
             BlueSlider.ValueChanged += UpdateBorderColor;
+
+            //create labels
+            VideoButtonTitle = new UILabel();
+            VideoButtonTitle.Text = "Click below to change the video played:";
+            VideoButtonTitle.TextColor = UIColor.Black;
+            VideoButtonTitle.TextAlignment = UITextAlignment.Left;
+            VideoButtonTitle.LineBreakMode = UILineBreakMode.WordWrap;
+            VideoButtonTitle.Lines = 2;
+
+            ImageButtonTitle = new UILabel();
+            ImageButtonTitle.Text = "Click below to change the button's image:";
+            ImageButtonTitle.TextColor = UIColor.Black;
+            ImageButtonTitle.TextAlignment = UITextAlignment.Left;
+            ImageButtonTitle.LineBreakMode = UILineBreakMode.WordWrap;
+            ImageButtonTitle.Lines = 2;
+
+            ColourBoxTitle = new UILabel();
+            ColourBoxTitle.Text = "Adjust the sliders to change the border colour:";
+            ColourBoxTitle.TextColor = UIColor.Black;
+            ColourBoxTitle.TextAlignment = UITextAlignment.Left;
+            ColourBoxTitle.LineBreakMode = UILineBreakMode.WordWrap;
+            ColourBoxTitle.Lines = 2;
+
+            SettingsButtonTitle = new UILabel();
+            SettingsButtonTitle.Text = "Click below to change the number of pages and buttons, and border thickness:";
+            SettingsButtonTitle.TextColor = UIColor.Black;
+            SettingsButtonTitle.TextAlignment = UITextAlignment.Left;
+            SettingsButtonTitle.LineBreakMode = UILineBreakMode.WordWrap;
+            SettingsButtonTitle.Lines = 2;
 
             //2. add views to parent view
             Screen.View.Add(VideoButton);
@@ -233,15 +277,19 @@ namespace JustButtons
             Screen.Add(RedSlider);
             Screen.Add(GreenSlider);
             Screen.Add(BlueSlider);
+            Screen.Add(ImageButtonTitle);
+            Screen.Add(VideoButtonTitle);
+            Screen.Add(ColourBoxTitle);
+            Screen.Add(SettingsButtonTitle);
 
             //3. call method on parent view
             Screen.View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             //4. add constraints
             Screen.View.AddConstraints(
-                VideoButton.AtTopOf(Screen.View, UIApplication.SharedApplication.StatusBarFrame.Height + 70),
+                VideoButton.AtTopOf(Screen.View, UIApplication.SharedApplication.StatusBarFrame.Height + 75),
                 VideoButton.AtLeftOf(Screen.View, 70),
-                VideoButton.WithRelativeWidth(Screen.View, 0.2f),
+                VideoButton.WithRelativeWidth(Screen.View, 0.19f),
                 VideoButton.Height().EqualTo(100),
 
                 ImageButton.Below(VideoButton, 80),
@@ -292,14 +340,43 @@ namespace JustButtons
                 BlueSlider.WithSameTop(ColourBox),
                 BlueSlider.Left().EqualTo().RightOf(GreenSlider).Plus(30),
                 BlueSlider.WithSameWidth(RedSlider),
-                BlueSlider.WithSameHeight(ColourBox)
+                BlueSlider.WithSameHeight(ColourBox),
+
+                VideoButtonTitle.Above(VideoButton, 5),
+                VideoButtonTitle.WithSameLeft(VideoButton),
+                VideoButtonTitle.WithRelativeWidth(VideoButton, 3.1f),
+                VideoButtonTitle.Height().EqualTo(80),
+
+                ImageButtonTitle.Above(ImageButton, 5),
+                ImageButtonTitle.WithSameLeft(VideoButtonTitle),
+                ImageButtonTitle.WithSameWidth(VideoButtonTitle),
+                ImageButtonTitle.WithSameHeight(VideoButtonTitle),
+
+                ColourBoxTitle.Above(ColourBox, 5),
+                ColourBoxTitle.WithSameLeft(VideoButtonTitle),
+                ColourBoxTitle.WithSameWidth(VideoButtonTitle),
+                ColourBoxTitle.WithSameHeight(VideoButtonTitle),
+
+                SettingsButtonTitle.Above(GeneralButton, 5),
+                SettingsButtonTitle.WithSameLeft(VideoButtonTitle),
+                SettingsButtonTitle.WithSameWidth(VideoButtonTitle),
+                SettingsButtonTitle.WithSameHeight(VideoButtonTitle)
             );
+        }
 
-
-
-
-
-
+        /// <summary>
+        /// Updates the borders.
+        /// </summary>
+        public void UpdateBorders()
+        {
+            VideoButton.Layer.BorderWidth = ButtonBorderWidth;
+            ImageButton.Layer.BorderWidth = ButtonBorderWidth;
+            ImageBox.Layer.BorderWidth = ButtonBorderWidth;
+            VideoBox.Layer.BorderWidth = ButtonBorderWidth;
+            BackButton.Layer.BorderWidth = ButtonBorderWidth;
+            SaveButton.Layer.BorderWidth = ButtonBorderWidth;
+            ColourBox.Layer.BorderWidth = ButtonBorderWidth;
+            GeneralButton.Layer.BorderWidth = ButtonBorderWidth;
         }
 
         /// <summary>
@@ -313,6 +390,8 @@ namespace JustButtons
         {
             ButtonsPerPage = GeneralMaintenanceScreen.ButtonsPerPage;
             NumberOfPages = GeneralMaintenanceScreen.NumberOfPages;
+            ButtonBorderWidth = GeneralMaintenanceScreen.BordersThickness;
+            UpdateBorders();
             if (GeneralSaved != null)
                 GeneralSaved(this, EventArgs.Empty);
         }
@@ -346,6 +425,7 @@ namespace JustButtons
             //gets the thumbnail from the movie player property
             //VideoBox.Image = MoviePlayer.ThumbnailImageAt(0.0, MPMovieTimeOption.NearestKeyFrame); //stops code flow here
             VideoBox.Image = GetVideoThumbnail(Button.VidPath);
+            VideoBox.Layer.BorderWidth = ButtonBorderWidth; //set border thickness
         }
 
         UIImage GetVideoThumbnail(string path)
@@ -374,6 +454,7 @@ namespace JustButtons
         {
             ImageBox.Image = new UIImage(Button.ImgPath);
             ImageBox.Layer.BorderColor = UIColor.FromRGB(Button.BorderColour.Red, Button.BorderColour.Green, Button.BorderColour.Blue).CGColor;
+            ImageBox.Layer.BorderWidth = ButtonBorderWidth; //set border thickness
         }
 
         /// <summary>
@@ -413,7 +494,7 @@ namespace JustButtons
                     SetVideoBox();
                     break;
                 default:
-                    Console.WriteLine(e.Info[UIImagePickerController.MediaType]+" selected");
+                    Console.WriteLine(e.Info[UIImagePickerController.MediaType] + " selected");
                     break;
             }
 

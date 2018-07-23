@@ -1,11 +1,12 @@
-/Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhoneSimulator/Debug/JustButtons.exe
+/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/bin/iPhoneSimulator/Debug/JustButtons.exe
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/mscorlib.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/../../64bits/Xamarin.iOS.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/System.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/Mono.Security.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/System.Xml.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/System.Core.dll
-/Users/digital3rdtester/Projects/JustButtons/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll
+/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Cirrious.FluentLayout.2.7.0/lib/Xamarin.iOS10/Cirrious.FluentLayouts.Touch.dll
+/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/Facades/netstandard.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/System.Data.dll
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mono/Xamarin.iOS/System.Numerics.dll
