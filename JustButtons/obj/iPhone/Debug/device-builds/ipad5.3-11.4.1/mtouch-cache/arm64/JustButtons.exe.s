@@ -30814,7 +30814,7 @@ runtime_version:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "65E20960-A46A-46D4-9A40-7FA5B3C5DCBE"
+	.asciz "15E43628-4853-4A50-AE0B-0D725FBDFE40"
 .section __TEXT, __const
 	.align 2
 assembly_name:
@@ -30899,7 +30899,7 @@ _mono_aot_file_info:
 	.long 200,2896,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0
-	.byte 59,11,140,69,196,10,39,42,113,69,90,77,89,41,230,147
+	.byte 254,192,236,25,44,251,74,108,58,253,219,193,68,102,250,199
 	.globl _mono_aot_module_JustButtons_info
 	.align 3
 _mono_aot_module_JustButtons_info:

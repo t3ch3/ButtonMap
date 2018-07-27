@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.ItemProperties.JustButtons PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.9c003ba36f5ba4c7f506f95ecddf896142faa997">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.JustButtons>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
