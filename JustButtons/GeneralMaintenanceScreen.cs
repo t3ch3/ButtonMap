@@ -84,10 +84,10 @@ namespace JustButtons
             ButtonsPickerView = new UIPickerView();
             ButtonsPickerView.Model = ButtonsPickerModel;
             ButtonsPickerView.ShowSelectionIndicator = true;
-            //ButtonsPickerView.Frame = new CoreGraphics.CGRect(250, 300, 60, 60);
             ButtonsPickerView.BackgroundColor = UIColor.White;
             ButtonsPickerView.Layer.BorderColor = UIColor.Gray.CGColor;
             ButtonsPickerView.Layer.BorderWidth = 4.5f;
+            ButtonsPickerView.Layer.CornerRadius = ButtonCornerRadius;
 
             //pages dropdown
             //create picker model, and add function event when it changes
@@ -107,6 +107,7 @@ namespace JustButtons
             PagesPickerView.BackgroundColor = UIColor.White;
             PagesPickerView.Layer.BorderColor = UIColor.Gray.CGColor;
             PagesPickerView.Layer.BorderWidth = 4.5f;
+            PagesPickerView.Layer.CornerRadius = ButtonCornerRadius;
 
             //borders dropdown
             //create picker model, and add function event when it changes
@@ -125,6 +126,7 @@ namespace JustButtons
             BordersPickerView.BackgroundColor = UIColor.White;
             BordersPickerView.Layer.BorderColor = UIColor.Gray.CGColor;
             BordersPickerView.Layer.BorderWidth = 4.5f;
+            BordersPickerView.Layer.CornerRadius = ButtonCornerRadius;
 
             //create back button
             BackButton = new UIButton();

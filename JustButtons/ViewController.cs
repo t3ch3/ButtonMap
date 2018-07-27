@@ -11,6 +11,7 @@ using MediaPlayer;
 using Foundation;
 
 using Cirrious.FluentLayouts.Touch;
+using CoreAnimation;
 
 namespace JustButtons
 {
@@ -89,11 +90,12 @@ namespace JustButtons
             AppData = FileManager.LoadFileAppData();
 
             //Display page
+            CreateHoldButton();
             CreateGrid();
             CalcRowsAndCols();
             //CalcCellsWidthAndHeight();
             //CreateCells();
-            CreateHoldButton();
+
             CreatePageControl();
 
             //change orientation
@@ -145,7 +147,7 @@ namespace JustButtons
             View.AddConstraints(
                 HoldButton.AtBottomOf(View),
                 HoldButton.Width().EqualTo(100),
-                HoldButton.Height().EqualTo(StatusBarH)
+                HoldButton.Height().EqualTo(StatusBarH + ButtonPadding)
             );
         }
 
@@ -208,7 +210,7 @@ namespace JustButtons
                 Grid.AtTopOf(View, StatusBarH),//changing to statusbarh fixed it
                 Grid.AtLeftOf(View, 0),
                 Grid.AtRightOf(View, 0),
-                Grid.AtBottomOf(View, StatusBarH)
+                Grid.AtBottomOf(View, StatusBarH+ButtonPadding)
             );
         }
 
@@ -308,6 +310,13 @@ namespace JustButtons
                     //theButton.Layer.BorderWidth = ButtonBorderW;
                     theButton.Layer.BorderWidth = AppData.BorderWidth;
                     theButton.Layer.CornerRadius = ButtonCornerRadius;
+
+                    //
+                    var maskingShapeLayer = new CAShapeLayer()
+                    {
+                        Path = UIBezierPath.FromRoundedRect(theButton.Bounds, UIRectCorner.AllCorners, new CGSize(26, 26)).CGPath
+                    };
+                    theButton.Layer.Mask = maskingShapeLayer;
 
                     //add play vid function to button click
                     theButton.TouchUpInside -= ButtonClickPlayVid; //fixes a saved button playing multiple times!

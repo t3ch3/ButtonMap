@@ -9,6 +9,7 @@ using AVFoundation;
 using CoreMedia;
 
 using Cirrious.FluentLayouts.Touch;
+using CoreAnimation;
 
 namespace JustButtons
 {
@@ -60,6 +61,8 @@ namespace JustButtons
         UILabel ColourBoxTitle;
         UILabel SettingsButtonTitle;
 
+        public UIButton ResetButton; //resets the button to the default settings
+
         public ButtonMaintenanceScreen()
         {
             GeneralMaintenanceScreen.Saved += SaveGeneral; //
@@ -77,12 +80,29 @@ namespace JustButtons
             //System.Diagnostics.Debug.WriteLine(MediaPicker.VideoExportPreset);
             MediaPicker.SourceType = UIImagePickerControllerSourceType.PhotoLibrary;
             MediaPicker.MediaTypes = UIImagePickerController.AvailableMediaTypes(UIImagePickerControllerSourceType.PhotoLibrary);
-            MediaPicker.ImageExportPreset = UIImagePickerControllerImageUrlExportPreset.Current;
-
+            //MediaPicker.ImageExportPreset = UIImagePickerControllerImageUrlExportPreset.Current;
+            MediaPicker.VideoExportPreset = AVAssetExportSessionPreset.Passthrough.GetConstant().ToString();
             MediaPicker.FinishedPickingMedia += Handle_FinishedPickingMedia;
             MediaPicker.Canceled += Handle_Canceled;
 
             //1. create views
+            //create reset button
+            ResetButton = new UIButton();
+            ResetButton.BackgroundColor = UIColor.Green;
+            ResetButton.SetTitle("Reset button\nsettings", UIControlState.Normal);
+            ResetButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
+
+            //when video button clicked - open the media picker native interface
+            ResetButton.TouchUpInside += ResetButtonData;
+
+            ResetButton.Layer.BorderColor = ButtonBorderColour.CGColor;
+            ResetButton.Layer.BorderWidth = ButtonBorderWidth;
+            ResetButton.BackgroundColor = ButtonBackgroundColour;
+            ResetButton.LineBreakMode = UILineBreakMode.WordWrap;//allow multiple lines for text inside video button
+            ResetButton.VerticalAlignment = UIControlContentVerticalAlignment.Center;
+            ResetButton.HorizontalAlignment = UIControlContentHorizontalAlignment.Center;
+            ResetButton.Layer.CornerRadius = ButtonCornerRadius;
+
             //create video button
             VideoButton = new UIButton();
             VideoButton.BackgroundColor = UIColor.Green;
@@ -164,6 +184,7 @@ namespace JustButtons
             ImageBox.ClipsToBounds = true;
             ImageBox.Layer.BorderColor = UIColor.Gray.CGColor;
 
+
             //create video box
             VideoBox = new UIImageView();
             VideoBox.Layer.BorderWidth = ButtonBorderWidth;
@@ -208,14 +229,15 @@ namespace JustButtons
             GeneralButton.TouchUpInside += (o, s) =>
             {
                 //remove?
-                GeneralMaintenanceScreen.ButtonsPerPage = ButtonsPerPage;
-                GeneralMaintenanceScreen.NumberOfPages = NumberOfPages;
+                //GeneralMaintenanceScreen.ButtonsPerPage = ButtonsPerPage;
+                //GeneralMaintenanceScreen.NumberOfPages = NumberOfPages;
                 Screen.PresentModalViewController(GeneralMaintenanceScreen.Screen, false); //
 
                 GeneralMaintenanceScreen.NumberOfPages = this.NumberOfPages;
                 GeneralMaintenanceScreen.ButtonsPerPage = this.ButtonsPerPage;
                 GeneralMaintenanceScreen.BordersThickness = this.ButtonBorderWidth;
                 GeneralMaintenanceScreen.SetDropDowns();
+                //ImageBox.Layer.BorderColor = UIColor.Clear.CGColor;
             };
             GeneralButton.SetTitle("JustButtons\nSettings", UIControlState.Normal);
             GeneralButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
@@ -281,6 +303,7 @@ namespace JustButtons
             Screen.Add(VideoButtonTitle);
             Screen.Add(ColourBoxTitle);
             Screen.Add(SettingsButtonTitle);
+            Screen.Add(ResetButton);
 
             //3. call method on parent view
             Screen.View.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
@@ -360,8 +383,15 @@ namespace JustButtons
                 SettingsButtonTitle.Above(GeneralButton, 5),
                 SettingsButtonTitle.WithSameLeft(VideoButtonTitle),
                 SettingsButtonTitle.WithSameWidth(VideoButtonTitle),
-                SettingsButtonTitle.WithSameHeight(VideoButtonTitle)
+                SettingsButtonTitle.WithSameHeight(VideoButtonTitle),
+
+                ResetButton.WithSameTop(GeneralButton),
+                ResetButton.AtRightOf(Screen.View, 70),
+                ResetButton.WithSameWidth(VideoButton),
+                ResetButton.WithSameHeight(VideoButton)
             );
+
+
         }
 
         /// <summary>
@@ -377,6 +407,26 @@ namespace JustButtons
             SaveButton.Layer.BorderWidth = ButtonBorderWidth;
             ColourBox.Layer.BorderWidth = ButtonBorderWidth;
             GeneralButton.Layer.BorderWidth = ButtonBorderWidth;
+        }
+
+        void ResetButtonData(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("reset button clicked");
+
+            Button.BorderColour = new BorderColourData() { Red = 0, Green = 0, Blue = 105 };
+            Button.VidPath = "babyshark.m4v";
+            Button.ImgPath = "shark.jpg";
+
+            //update them
+            SetImageBox();
+            SetVideoBox();
+            SetColourBox();
+            //set sliders - so it matches the colours of the button clicked
+            RedSlider.Value = this.Button.BorderColour.Red;
+            GreenSlider.Value = this.Button.BorderColour.Green;
+            BlueSlider.Value = this.Button.BorderColour.Blue;
+
+            //remove from 
         }
 
         /// <summary>
@@ -406,6 +456,14 @@ namespace JustButtons
             Button.BorderColour = new BorderColourData() { Red = RedSlider.Value, Green = GreenSlider.Value, Blue = BlueSlider.Value };
             SetColourBox();
             SetImageBox();
+
+
+            //where
+            var maskingShapeLayer = new CAShapeLayer()
+            {
+                Path = UIBezierPath.FromRoundedRect(ImageBox.Bounds, UIRectCorner.AllCorners, new CGSize(26, 26)).CGPath
+            };
+            ImageBox.Layer.Mask = maskingShapeLayer;
         }
 
         /// <summary>
@@ -490,7 +548,7 @@ namespace JustButtons
                     Console.WriteLine("Video selected");
                     Button.VidPath = e.MediaUrl.Path; //assign item path to button vid path
                     Console.WriteLine("media:" + e.MediaUrl);
-                    MoviePlayer.ContentUrl = NSUrl.FromFilename(Button.VidPath); //assign movie player url to item path. so can retrieve the video thumbnail
+                    MoviePlayer.ContentUrl = NSUrl.FromFilename(Button.VidPath); //assign movie player url to item path. so can retrieve the video thumbnail later
                     SetVideoBox();
                     break;
                 default:

@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{246228B8-E7C7-46D5-92CA-1095F5665BED}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="JustButtons/ViewController.cs">
-    <Files>
-      <File FileName="JustButtons/ViewController.cs" Line="390" Column="83" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.JustButtons PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.9c003ba36f5ba4c7f506f95ecddf896142faa997">
     <MonoDevelop.MacDev.AppleDevelopmentTeam />
   </MonoDevelop.Ide.ItemProperties.JustButtons>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
