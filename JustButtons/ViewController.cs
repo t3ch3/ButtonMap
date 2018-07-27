@@ -47,7 +47,6 @@ namespace JustButtons
         public const float CellBorderW = 2f;
 
         //Button variables
-        public const float ButtonBorderW = 4.5f;
         public const int ButtonCornerRadius = 25;
         public const float ButtonPadding = 30f;
 
@@ -306,7 +305,8 @@ namespace JustButtons
 
                     //set constant properties for every button
                     theButton.Frame = btnFrame;
-                    theButton.Layer.BorderWidth = ButtonBorderW;
+                    //theButton.Layer.BorderWidth = ButtonBorderW;
+                    theButton.Layer.BorderWidth = AppData.BorderWidth;
                     theButton.Layer.CornerRadius = ButtonCornerRadius;
 
                     //add play vid function to button click
@@ -382,9 +382,12 @@ namespace JustButtons
 
                     buttonData.ImgPath = btn.ImgPath;
                     buttonData.VidPath = btn.VidPath;
-
                     //set button maintenance screen button to the button data obj
                     ButtonMaintenanceScreen.Button = buttonData;
+
+                    //set button border width on button maintenace screen
+                    ButtonMaintenanceScreen.ButtonBorderWidth = AppData.BorderWidth;
+                    ButtonMaintenanceScreen.UpdateBorders(); //update border sizes
 
                     //set sliders - so it matches the colours of the button clicked
                     ButtonMaintenanceScreen.RedSlider.Value = (float)btn.BorderColour.Components[0];
@@ -555,6 +558,7 @@ namespace JustButtons
             //change settings
             AppData.ButtonsPerPage = ButtonMaintenanceScreen.ButtonsPerPage;
             AppData.NumberOfPages = ButtonMaintenanceScreen.NumberOfPages;
+            AppData.BorderWidth = ButtonMaintenanceScreen.ButtonBorderWidth;
 
             //Set current page number to 1 incase user was on a page higher than what the new nubmer of pages is
             PageNum = 1;

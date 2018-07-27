@@ -1,7 +1,7 @@
 # Version: 11.12.0.4 (d15-7: 64fece5f)
-# [first argument, ignore] # --cache=/Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/mtouch-cache
+# [first argument, ignore] # --cache=/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/mtouch-cache
 /Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mtouch/mtouch.exe \
-	--dev=/Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/device-builds/ipad5.3-11.4.1/JustButtons.app \
+	--dev=/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/bin/iPhone/Debug/device-builds/ipad5.3-11.4.1/JustButtons.app \
 	--executable=JustButtons \
 	--fastdev \
 	--debug \
@@ -12,11 +12,11 @@
 	--aot-options=-O=float32 \
 	--http-message-handler=HttpClientHandler \
 	--abi=arm64 \
-	--symbollist=/Users/digital3rdtester/Projects/JustButtons/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/mtouch-symbols.list \
+	--symbollist=/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Debug/device-builds/ipad5.3-11.4.1/mtouch-symbols.list \
 	--dsym=no \
-	-r=/Users/digital3rdtester/Projects/JustButtons/packages/Cirrious.FluentLayout.2.7.0/lib/Xamarin.iOS10/Cirrious.FluentLayouts.Touch.dll \
+	-r=/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Cirrious.FluentLayout.2.7.0/lib/Xamarin.iOS10/Cirrious.FluentLayouts.Touch.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
-	-r=/Users/digital3rdtester/Projects/JustButtons/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll \
+	-r=/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll \
@@ -160,7 +160,7 @@
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XDocument.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XmlDocument.dll \
 	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.Xsl.Primitives.dll \
-	-r=/Users/digital3rdtester/Projects/JustButtons/packages/Cirrious.FluentLayout.2.7.0/lib/Xamarin.iOS10/Cirrious.FluentLayouts.Touch.dll \
-	-r=/Users/digital3rdtester/Projects/JustButtons/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll \
+	-r=/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Cirrious.FluentLayout.2.7.0/lib/Xamarin.iOS10/Cirrious.FluentLayouts.Touch.dll \
+	-r=/Users/digital3rdtester/Desktop/repos/ButtonMap/packages/Newtonsoft.Json.11.0.2/lib/netstandard2.0/Newtonsoft.Json.dll \
 	'--target-framework=Xamarin.iOS,v1.0' \
-	--root-assembly=/Users/digital3rdtester/Projects/JustButtons/JustButtons/bin/iPhone/Debug/JustButtons.exe \
+	--root-assembly=/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/bin/iPhone/Debug/JustButtons.exe \
