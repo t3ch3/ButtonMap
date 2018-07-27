@@ -1886,7 +1886,7 @@ ldr x3, [x16, #16]
 .word 0x8b030042
 .word 0xd280003e
 .word 0x3900005e
-.loc 3 297 0
+.loc 3 298 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
@@ -1905,12 +1905,12 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 3 301 0
+.loc 3 302 0
 .word 0xf940029e
 .word 0xb9802a80
 .word 0xf94002be
 .word 0xb90042a0
-.loc 3 302 0
+.loc 3 303 0
 .word 0xf940029e
 .word 0xf9401280
 .word 0xbd401000
@@ -1942,7 +1942,7 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 3 303 0
+.loc 3 304 0
 .word 0xf940029e
 .word 0xf9400a80
 .word 0xf94002be
@@ -1959,7 +1959,7 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 3 304 0
+.loc 3 305 0
 .word 0xf940029e
 .word 0xf9400e80
 .word 0xf94002be
@@ -1976,7 +1976,7 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 3 306 0
+.loc 3 307 0
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_70
@@ -1986,7 +1986,7 @@ bl _p_70
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_71
-.loc 3 309 0
+.loc 3 310 0
 .word 0xf940aba0
 .word 0xf90053a0
 .word 0xf940afa0
@@ -2002,7 +2002,7 @@ bl _p_71
 .word 0xfd405fa3
 .word 0xf94002be
 bl _p_72
-.loc 3 311 0
+.loc 3 312 0
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_70
@@ -2013,7 +2013,7 @@ bl _p_70
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_73
-.loc 3 312 0
+.loc 3 313 0
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_70
@@ -2027,7 +2027,7 @@ bl _p_70
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_74
-.loc 3 315 0
+.loc 3 316 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
@@ -2083,7 +2083,7 @@ bl _p_79
 bl _p_80
 .word 0xf940ffa0
 .word 0xaa0003f4
-.loc 3 319 0
+.loc 3 320 0
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_70
@@ -2092,7 +2092,7 @@ bl _p_70
 .word 0xaa1403e1
 .word 0xf940005e
 bl _p_81
-.loc 3 322 0
+.loc 3 323 0
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x54001ce0
@@ -2141,7 +2141,7 @@ ldr x0, [x16, #568]
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_82
-.loc 3 323 0
+.loc 3 324 0
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x54001780
@@ -2190,12 +2190,12 @@ ldr x0, [x16, #568]
 .word 0xaa1503e0
 .word 0xf94002be
 bl _p_36
-.loc 3 326 0
+.loc 3 327 0
 .word 0xaa1603e0
 .word 0xaa1503e1
 .word 0xf94002de
 bl _p_65
-.loc 3 329 0
+.loc 3 330 0
 .word 0xd2800000
 .word 0x1e620000
 .word 0x9e6703e1
@@ -2251,7 +2251,7 @@ bl _p_63
 .word 0xf90033a0
 .word 0xf9407fa0
 .word 0xf90037a0
-.loc 3 330 0
+.loc 3 331 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
@@ -2265,7 +2265,7 @@ bl _p_24
 bl _p_83
 .word 0xf940efa0
 .word 0xaa0003f6
-.loc 3 331 0
+.loc 3 332 0
 .word 0xaa1603e0
 .word 0xf900e7a0
 .word 0xf94002be
@@ -2284,12 +2284,12 @@ bl _p_84
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_85
-.loc 3 332 0
+.loc 3 333 0
 .word 0xaa1603e0
 .word 0xd2800001
 .word 0xf94002de
 bl _p_50
-.loc 3 333 0
+.loc 3 334 0
 .word 0xaa1603e0
 .word 0xf94002de
 bl _p_70
@@ -2303,17 +2303,17 @@ bl _p_70
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_74
-.loc 3 334 0
+.loc 3 335 0
 .word 0xaa1603e0
 .word 0xd2800021
 .word 0xf94002de
 bl _p_86
-.loc 3 337 0
+.loc 3 338 0
 .word 0xaa1503e0
 .word 0xaa1603e1
 .word 0xf94002be
 bl _p_65
-.loc 3 339 0
+.loc 3 340 0
 .word 0xf9400f36
 .word 0xf900d7b6
 .word 0xf940d7a0
@@ -2336,7 +2336,7 @@ bl _p_65
 .word 0xeb01001f
 .word 0x9a9fa7e0
 .word 0x35ffb360
-.loc 3 342 0
+.loc 3 343 0
 .word 0xa94153b3
 .word 0xa9425bb5
 .word 0xa94363b7
@@ -2360,7 +2360,7 @@ Lme_15:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_OrientationChange_Foundation_NSNotification
 JustButtons_ViewController_OrientationChange_Foundation_NSNotification:
-.loc 3 346 0 prologue_end
+.loc 3 347 0 prologue_end
 .word 0xa9be7bfd
 .word 0x910003fd
 .word 0xf9000ba0
@@ -2368,19 +2368,19 @@ JustButtons_ViewController_OrientationChange_Foundation_NSNotification:
 .word 0xf9400ba0
 .word 0xd280003e
 .word 0x3902e01e
-.loc 3 347 0
+.loc 3 348 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
 ldr x0, [x16, #592]
 bl _p_29
-.loc 3 348 0
-.word 0xf9400ba0
-bl _p_87
 .loc 3 349 0
 .word 0xf9400ba0
-bl _p_20
+bl _p_87
 .loc 3 350 0
+.word 0xf9400ba0
+bl _p_20
+.loc 3 351 0
 .word 0x910003bf
 .word 0xa8c27bfd
 .word 0xd65f03c0
@@ -2390,7 +2390,7 @@ Lme_16:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_ButtonClickPlayVid_object_System_EventArgs
 JustButtons_ViewController_ButtonClickPlayVid_object_System_EventArgs:
-.loc 3 362 0 prologue_end
+.loc 3 363 0 prologue_end
 .word 0xa9b77bfd
 .word 0x910003fd
 .word 0xa90167b8
@@ -2417,12 +2417,12 @@ ldr x1, [x16, #600]
 .word 0x54000040
 .word 0xd2800018
 .word 0xaa1803fa
-.loc 3 364 0
+.loc 3 365 0
 .word 0xb4002058
-.loc 3 366 0
+.loc 3 367 0
 .word 0x39422320
 .word 0x35000320
-.loc 3 372 0
+.loc 3 373 0
 .word 0xf9402320
 .word 0xf9400800
 .word 0xf9001ba0
@@ -2434,7 +2434,7 @@ bl _p_88
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_89
-.loc 3 373 0
+.loc 3 374 0
 .word 0xf9402320
 .word 0xf9400803
 .word 0xaa0303e0
@@ -2442,24 +2442,24 @@ bl _p_89
 .word 0xd2800002
 .word 0xf940007e
 bl _p_90
-.loc 3 374 0
+.loc 3 375 0
 .word 0xf9402320
 .word 0xf9400801
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_91
-.loc 3 375 0
+.loc 3 376 0
 .word 0x140000e8
-.loc 3 379 0
+.loc 3 380 0
 .word 0xf9401b20
 .word 0xf9401c01
 .word 0xaa1903e0
 .word 0xd2800002
 .word 0xf940033e
 bl _p_92
-.loc 3 380 0
+.loc 3 381 0
 .word 0x3902233f
-.loc 3 386 0
+.loc 3 387 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
@@ -2467,12 +2467,12 @@ ldr x0, [x16, #512]
 .word 0xd2800601
 bl _p_3
 .word 0xaa0003f8
-.loc 3 387 0
+.loc 3 388 0
 .word 0xf940035e
 .word 0xb9804341
 .word 0xf940001e
 .word 0xb9002801
-.loc 3 389 0
+.loc 3 390 0
 .word 0xf9002fa0
 .word 0xf90037a0
 
@@ -2551,7 +2551,7 @@ ldr x3, [x16, #16]
 .word 0x8b030042
 .word 0xd280003e
 .word 0x3900005e
-.loc 3 392 0
+.loc 3 393 0
 .word 0xf940035e
 .word 0xf9401b40
 .word 0xf940031e
@@ -2568,7 +2568,7 @@ ldr x3, [x16, #16]
 .word 0x8b030042
 .word 0xd280003e
 .word 0x3900005e
-.loc 3 393 0
+.loc 3 394 0
 .word 0xf940035e
 .word 0xf9401740
 .word 0xf940031e
@@ -2585,7 +2585,7 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 3 395 0
+.loc 3 396 0
 .word 0xf9401b20
 .word 0xf9002018
 .word 0x91010000
@@ -2600,17 +2600,17 @@ ldr x1, [x16, #16]
 .word 0x8b010000
 .word 0xd280003e
 .word 0x3900001e
-.loc 3 398 0
+.loc 3 399 0
 .word 0xf9401b20
 .word 0xf9401721
 .word 0xbd402020
 .word 0xbd00d800
-.loc 3 399 0
+.loc 3 400 0
 .word 0xf9401b21
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_94
-.loc 3 402 0
+.loc 3 403 0
 .word 0xf9401b20
 .word 0xf9403400
 .word 0xf90027a0
@@ -2629,7 +2629,7 @@ bl _p_93
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 3 403 0
+.loc 3 404 0
 .word 0xf9401b20
 .word 0xf9403800
 .word 0xf90023a0
@@ -2649,7 +2649,7 @@ bl _p_93
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 3 404 0
+.loc 3 405 0
 .word 0xf9401b20
 .word 0xf9403c00
 .word 0xf9001fa0
@@ -2669,17 +2669,17 @@ bl _p_93
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 3 407 0
-.word 0xf9401b21
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_96
 .loc 3 408 0
 .word 0xf9401b21
 .word 0xaa0103e0
 .word 0xf940003e
+bl _p_96
+.loc 3 409 0
+.word 0xf9401b21
+.word 0xaa0103e0
+.word 0xf940003e
 bl _p_97
-.loc 3 413 0
+.loc 3 414 0
 .word 0xf9401b20
 .word 0xf9405400
 .word 0xf9001ba0
@@ -2691,22 +2691,22 @@ bl _p_88
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_89
-.loc 3 414 0
+.loc 3 415 0
 .word 0xf9401b21
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_98
-.loc 3 417 0
+.loc 3 418 0
 .word 0xf9401b20
 .word 0xf9401721
 .word 0xb9801821
 .word 0xb900dc01
-.loc 3 418 0
+.loc 3 419 0
 .word 0xf9401b20
 .word 0xf9401721
 .word 0xb9801c21
 .word 0xb900e001
-.loc 3 421 0
+.loc 3 424 0
 .word 0xa94167b8
 .word 0xf94013ba
 .word 0x910003bf
@@ -2721,7 +2721,7 @@ Lme_17:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_HoldButton_TouchDown_object_System_EventArgs
 JustButtons_ViewController_HoldButton_TouchDown_object_System_EventArgs:
-.loc 3 431 0 prologue_end
+.loc 3 434 0 prologue_end
 .word 0xa9bd7bfd
 .word 0x910003fd
 .word 0xf9000ba0
@@ -2730,7 +2730,7 @@ JustButtons_ViewController_HoldButton_TouchDown_object_System_EventArgs:
 .word 0xf9400ba0
 .word 0xd280003e
 .word 0x3902201e
-.loc 3 432 0
+.loc 3 435 0
 .word 0x910003bf
 .word 0xa8c37bfd
 .word 0xd65f03c0
@@ -2740,7 +2740,7 @@ Lme_18:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_HoldButton_TouchUpInside_object_System_EventArgs
 JustButtons_ViewController_HoldButton_TouchUpInside_object_System_EventArgs:
-.loc 3 442 0 prologue_end
+.loc 3 445 0 prologue_end
 .word 0xa9bd7bfd
 .word 0x910003fd
 .word 0xf9000ba0
@@ -2748,7 +2748,7 @@ JustButtons_ViewController_HoldButton_TouchUpInside_object_System_EventArgs:
 .word 0xf90013a2
 .word 0xf9400ba0
 .word 0x3902201f
-.loc 3 443 0
+.loc 3 446 0
 .word 0x910003bf
 .word 0xa8c37bfd
 .word 0xd65f03c0
@@ -2758,7 +2758,7 @@ Lme_19:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_SaveButton_object_System_EventArgs
 JustButtons_ViewController_SaveButton_object_System_EventArgs:
-.loc 3 519 0 prologue_end
+.loc 3 522 0 prologue_end
 .word 0xa9bc7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -2767,13 +2767,13 @@ JustButtons_ViewController_SaveButton_object_System_EventArgs:
 .word 0xf90013a2
 .word 0xd280003e
 .word 0x3902e35e
-.loc 3 521 0
+.loc 3 524 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
 ldr x0, [x16, #608]
 bl _p_29
-.loc 3 525 0
+.loc 3 528 0
 .word 0xf9401740
 .word 0xf9400800
 .word 0xf9001ba0
@@ -2827,9 +2827,9 @@ ldr x0, [x16, #632]
 .word 0xf940005e
 bl _p_99
 .word 0x53001c00
-.loc 3 531 0
+.loc 3 534 0
 .word 0x350001a0
-.loc 3 533 0
+.loc 3 536 0
 .word 0xf9401740
 .word 0xf9400802
 .word 0xf9401b40
@@ -2837,15 +2837,15 @@ bl _p_99
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_100
-.loc 3 534 0
+.loc 3 537 0
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
 ldr x0, [x16, #640]
 bl _p_29
-.loc 3 535 0
+.loc 3 538 0
 .word 0x1400003a
-.loc 3 539 0
+.loc 3 542 0
 .word 0xf9401740
 .word 0xf9400800
 .word 0xf9001ba0
@@ -2900,7 +2900,7 @@ ldr x0, [x16, #664]
 bl _p_101
 .word 0x93407c00
 .word 0xb9002ba0
-.loc 3 546 0
+.loc 3 549 0
 .word 0xf9401740
 .word 0xf9400803
 .word 0xf9401b40
@@ -2909,19 +2909,19 @@ bl _p_101
 .word 0xb9802ba1
 .word 0xf940007e
 bl _p_102
-.loc 3 550 0
+.loc 3 553 0
 .word 0xf9401f42
 .word 0xf9401741
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_17
-.loc 3 552 0
+.loc 3 555 0
 .word 0xaa1a03e0
 bl _p_87
-.loc 3 553 0
+.loc 3 556 0
 .word 0xaa1a03e0
 bl _p_20
-.loc 3 555 0
+.loc 3 558 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c47bfd
@@ -2938,7 +2938,7 @@ Lme_1a:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_SaveSettings_object_System_EventArgs
 JustButtons_ViewController_SaveSettings_object_System_EventArgs:
-.loc 3 566 0 prologue_end
+.loc 3 569 0 prologue_end
 .word 0xa9bd7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -2950,47 +2950,47 @@ adrp x16, mono_aot_JustButtons_got@PAGE+0
 add x16, x16, mono_aot_JustButtons_got@PAGEOFF
 ldr x0, [x16, #672]
 bl _p_29
-.loc 3 568 0
+.loc 3 571 0
 .word 0xf9401740
 .word 0xf9401b41
 .word 0xb980dc21
 .word 0xb9001801
-.loc 3 569 0
+.loc 3 572 0
 .word 0xf9401740
 .word 0xf9401b41
 .word 0xb980e021
 .word 0xb9001c01
-.loc 3 570 0
+.loc 3 573 0
 .word 0xf9401740
 .word 0xf9401b41
 .word 0xbd40d820
 .word 0xbd002000
-.loc 3 573 0
+.loc 3 576 0
 .word 0xd2800020
 .word 0x93407c00
 .word 0xf9003b40
-.loc 3 576 0
+.loc 3 579 0
 .word 0xf9401f42
 .word 0xf9401741
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_17
-.loc 3 579 0
-.word 0xaa1a03e0
-bl _p_21
-.loc 3 580 0
-.word 0xaa1a03e0
-bl _p_31
-.loc 3 581 0
-.word 0xaa1a03e0
-bl _p_87
 .loc 3 582 0
 .word 0xaa1a03e0
-bl _p_20
+bl _p_21
 .loc 3 583 0
 .word 0xaa1a03e0
-bl _p_32
+bl _p_31
+.loc 3 584 0
+.word 0xaa1a03e0
+bl _p_87
+.loc 3 585 0
+.word 0xaa1a03e0
+bl _p_20
 .loc 3 586 0
+.word 0xaa1a03e0
+bl _p_32
+.loc 3 589 0
 .word 0xf9402b42
 .word 0xf9401740
 .word 0xb9801c00
@@ -2998,7 +2998,7 @@ bl _p_32
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_45
-.loc 3 587 0
+.loc 3 590 0
 .word 0xf9402b42
 .word 0xf9403b40
 .word 0xd2800021
@@ -3007,7 +3007,7 @@ bl _p_45
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_51
-.loc 3 588 0
+.loc 3 591 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c37bfd
@@ -3107,7 +3107,7 @@ Lme_1f:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer
 JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer:
-.loc 3 453 0 prologue_end
+.loc 3 456 0 prologue_end
 .word 0xa9ba7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -3123,7 +3123,7 @@ JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer:
 .word 0xeb01001f
 .word 0x9a9fd7e0
 .word 0x35000420
-.loc 3 455 0
+.loc 3 458 0
 .word 0xf9403b40
 .word 0xf90013a0
 .word 0xf94013a0
@@ -3132,13 +3132,13 @@ JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer:
 .word 0xf90017a0
 .word 0xf94017a0
 .word 0xf9003b40
-.loc 3 459 0
+.loc 3 462 0
 .word 0xaa1a03e0
 bl _p_87
-.loc 3 460 0
+.loc 3 463 0
 .word 0xaa1a03e0
 bl _p_20
-.loc 3 464 0
+.loc 3 467 0
 .word 0xf9402b41
 .word 0xaa0103e0
 .word 0xf9002ba0
@@ -3157,10 +3157,10 @@ bl _p_103
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_51
-.loc 3 470 0
+.loc 3 473 0
 .word 0xd280003e
 .word 0x3902e35e
-.loc 3 476 0
+.loc 3 479 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c67bfd
@@ -3171,7 +3171,7 @@ Lme_20:
 	.align 4
 	.no_dead_strip JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer
 JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer:
-.loc 3 486 0 prologue_end
+.loc 3 489 0 prologue_end
 .word 0xa9ba7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -3186,7 +3186,7 @@ JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer:
 .word 0xeb01001f
 .word 0x9a9fc7e0
 .word 0x35000420
-.loc 3 488 0
+.loc 3 491 0
 .word 0xf9403b40
 .word 0xf90013a0
 .word 0xf94013a0
@@ -3195,13 +3195,13 @@ JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer:
 .word 0xf90017a0
 .word 0xf94017a0
 .word 0xf9003b40
-.loc 3 491 0
+.loc 3 494 0
 .word 0xaa1a03e0
 bl _p_87
-.loc 3 492 0
+.loc 3 495 0
 .word 0xaa1a03e0
 bl _p_20
-.loc 3 496 0
+.loc 3 499 0
 .word 0xf9402b41
 .word 0xaa0103e0
 .word 0xf9002ba0
@@ -3220,10 +3220,10 @@ bl _p_103
 .word 0xaa0203e0
 .word 0xf940005e
 bl _p_51
-.loc 3 502 0
+.loc 3 505 0
 .word 0xd280003e
 .word 0x3902e35e
-.loc 3 508 0
+.loc 3 511 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c67bfd
@@ -3295,7 +3295,7 @@ Lme_22:
 	.align 4
 	.no_dead_strip JustButtons_ViewController__SaveButtonb__37_0_JustButtons_ButtonData
 JustButtons_ViewController__SaveButtonb__37_0_JustButtons_ButtonData:
-.loc 3 527 0 prologue_end
+.loc 3 530 0 prologue_end
 .word 0xa9be7bfd
 .word 0x910003fd
 .word 0xf9000ba0
@@ -3320,7 +3320,7 @@ Lme_23:
 	.align 4
 	.no_dead_strip JustButtons_ViewController__SaveButtonb__37_1_JustButtons_ButtonData
 JustButtons_ViewController__SaveButtonb__37_1_JustButtons_ButtonData:
-.loc 3 541 0 prologue_end
+.loc 3 544 0 prologue_end
 .word 0xa9be7bfd
 .word 0x910003fd
 .word 0xf9000ba0
@@ -7573,7 +7573,7 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 7 418 0
+.loc 7 419 0
 .word 0xf9402341
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
@@ -7593,16 +7593,16 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 7 421 0
-.word 0xaa1a03e0
-bl _p_97
 .loc 7 422 0
 .word 0xaa1a03e0
-bl _p_98
+bl _p_97
 .loc 7 423 0
 .word 0xaa1a03e0
+bl _p_98
+.loc 7 424 0
+.word 0xaa1a03e0
 bl _p_96
-.loc 7 425 0
+.loc 7 426 0
 .word 0xf9403741
 .word 0xf9402340
 .word 0xaa0003e2
@@ -7612,7 +7612,7 @@ bl _p_96
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 7 426 0
+.loc 7 427 0
 .word 0xf9403b41
 .word 0xf9402340
 .word 0xaa0003e2
@@ -7622,7 +7622,7 @@ bl _p_95
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 7 427 0
+.loc 7 428 0
 .word 0xf9403f41
 .word 0xf9402340
 .word 0xaa0003e2
@@ -7632,7 +7632,7 @@ bl _p_95
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_95
-.loc 7 430 0
+.loc 7 431 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c47bfd
@@ -7643,7 +7643,7 @@ Lme_35:
 	.align 4
 	.no_dead_strip JustButtons_ButtonMaintenanceScreen_SaveGeneral_object_System_EventArgs
 JustButtons_ButtonMaintenanceScreen_SaveGeneral_object_System_EventArgs:
-.loc 7 441 0 prologue_end
+.loc 7 442 0 prologue_end
 .word 0xa9bc7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -7653,21 +7653,21 @@ JustButtons_ButtonMaintenanceScreen_SaveGeneral_object_System_EventArgs:
 .word 0xf9401340
 .word 0xb980a000
 .word 0xb900df40
-.loc 7 442 0
+.loc 7 443 0
 .word 0xf9401340
 .word 0xb980a400
 .word 0xb900e340
-.loc 7 443 0
+.loc 7 444 0
 .word 0xf9401340
 .word 0xbd40a800
 .word 0xbd00db40
-.loc 7 444 0
+.loc 7 445 0
 .word 0xaa1a03e0
 bl _p_94
-.loc 7 445 0
+.loc 7 446 0
 .word 0xf9401b40
 .word 0xb4000180
-.loc 7 446 0
+.loc 7 447 0
 .word 0xf9401b43
 
 adrp x16, mono_aot_JustButtons_got@PAGE+0
@@ -7680,7 +7680,7 @@ ldr x0, [x16, #1096]
 .word 0xf9400c70
 .word 0xd63f0200
 .word 0xf9401ba0
-.loc 7 447 0
+.loc 7 448 0
 .word 0xf9400bba
 .word 0x910003bf
 .word 0xa8c47bfd
@@ -7691,7 +7691,7 @@ Lme_36:
 	.align 4
 	.no_dead_strip JustButtons_ButtonMaintenanceScreen_UpdateBorderColor_object_System_EventArgs
 JustButtons_ButtonMaintenanceScreen_UpdateBorderColor_object_System_EventArgs:
-.loc 7 456 0 prologue_end
+.loc 7 457 0 prologue_end
 .word 0xa9b37bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -7752,10 +7752,10 @@ ldr x2, [x16, #16]
 .word 0x8b020021
 .word 0xd280003e
 .word 0x3900003e
-.loc 7 457 0
+.loc 7 458 0
 .word 0xaa1a03e0
 bl _p_96
-.loc 7 458 0
+.loc 7 459 0
 .word 0xaa1a03e0
 bl _p_97
 .loc 7 462 0
@@ -15788,7 +15788,7 @@ runtime_version:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "AB91904D-B817-4422-B563-0D4F4803AC85"
+	.asciz "11108C18-CA61-43F0-A1B1-EC9DEE6BF460"
 .section __TEXT, __const
 	.align 2
 assembly_name:
@@ -15873,7 +15873,7 @@ _mono_aot_file_info:
 	.long 200,2544,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0
-	.byte 184,33,231,96,159,45,29,129,242,241,223,77,76,157,215,235
+	.byte 147,253,39,253,232,112,27,172,120,153,22,146,128,148,177,221
 	.globl _mono_aot_module_JustButtons_info
 	.align 3
 _mono_aot_module_JustButtons_info:
@@ -18836,7 +18836,7 @@ LDIFF_SYM469=LTDIE_61 - Ldebug_info_start
 	.asciz "JustButtons.ViewController:OrientationChange"
 	.asciz "JustButtons_ViewController_OrientationChange_Foundation_NSNotification"
 
-	.byte 3,218,2
+	.byte 3,219,2
 	.quad JustButtons_ViewController_OrientationChange_Foundation_NSNotification
 	.quad Lme_16
 
@@ -18897,7 +18897,7 @@ LDIFF_SYM477=LTDIE_62 - Ldebug_info_start
 	.asciz "JustButtons.ViewController:ButtonClickPlayVid"
 	.asciz "JustButtons_ViewController_ButtonClickPlayVid_object_System_EventArgs"
 
-	.byte 3,234,2
+	.byte 3,235,2
 	.quad JustButtons_ViewController_ButtonClickPlayVid_object_System_EventArgs
 	.quad Lme_17
 
@@ -18951,7 +18951,7 @@ Lfde23_end:
 	.asciz "JustButtons.ViewController:HoldButton_TouchDown"
 	.asciz "JustButtons_ViewController_HoldButton_TouchDown_object_System_EventArgs"
 
-	.byte 3,175,3
+	.byte 3,178,3
 	.quad JustButtons_ViewController_HoldButton_TouchDown_object_System_EventArgs
 	.quad Lme_18
 
@@ -18995,7 +18995,7 @@ Lfde24_end:
 	.asciz "JustButtons.ViewController:HoldButton_TouchUpInside"
 	.asciz "JustButtons_ViewController_HoldButton_TouchUpInside_object_System_EventArgs"
 
-	.byte 3,186,3
+	.byte 3,189,3
 	.quad JustButtons_ViewController_HoldButton_TouchUpInside_object_System_EventArgs
 	.quad Lme_19
 
@@ -19039,7 +19039,7 @@ Lfde25_end:
 	.asciz "JustButtons.ViewController:SaveButton"
 	.asciz "JustButtons_ViewController_SaveButton_object_System_EventArgs"
 
-	.byte 3,135,4
+	.byte 3,138,4
 	.quad JustButtons_ViewController_SaveButton_object_System_EventArgs
 	.quad Lme_1a
 
@@ -19088,7 +19088,7 @@ Lfde26_end:
 	.asciz "JustButtons.ViewController:SaveSettings"
 	.asciz "JustButtons_ViewController_SaveSettings_object_System_EventArgs"
 
-	.byte 3,182,4
+	.byte 3,185,4
 	.quad JustButtons_ViewController_SaveSettings_object_System_EventArgs
 	.quad Lme_1b
 
@@ -19278,7 +19278,7 @@ Lfde31_end:
 	.asciz "JustButtons.ViewController:swipedLeft"
 	.asciz "JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer"
 
-	.byte 3,197,3
+	.byte 3,200,3
 	.quad JustButtons_ViewController_swipedLeft_UIKit_UISwipeGestureRecognizer
 	.quad Lme_20
 
@@ -19322,7 +19322,7 @@ Lfde32_end:
 	.asciz "JustButtons.ViewController:SwipedRight"
 	.asciz "JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer"
 
-	.byte 3,230,3
+	.byte 3,233,3
 	.quad JustButtons_ViewController_SwipedRight_UIKit_UISwipeGestureRecognizer
 	.quad Lme_21
 
@@ -19400,7 +19400,7 @@ Lfde34_end:
 	.asciz "JustButtons.ViewController:<SaveButton>b__37_0"
 	.asciz "JustButtons_ViewController__SaveButtonb__37_0_JustButtons_ButtonData"
 
-	.byte 3,143,4
+	.byte 3,146,4
 	.quad JustButtons_ViewController__SaveButtonb__37_0_JustButtons_ButtonData
 	.quad Lme_23
 
@@ -19439,7 +19439,7 @@ Lfde35_end:
 	.asciz "JustButtons.ViewController:<SaveButton>b__37_1"
 	.asciz "JustButtons_ViewController__SaveButtonb__37_1_JustButtons_ButtonData"
 
-	.byte 3,157,4
+	.byte 3,160,4
 	.quad JustButtons_ViewController__SaveButtonb__37_1_JustButtons_ButtonData
 	.quad Lme_24
 
@@ -20176,7 +20176,7 @@ Lfde53_end:
 	.asciz "JustButtons.ButtonMaintenanceScreen:SaveGeneral"
 	.asciz "JustButtons_ButtonMaintenanceScreen_SaveGeneral_object_System_EventArgs"
 
-	.byte 7,185,3
+	.byte 7,186,3
 	.quad JustButtons_ButtonMaintenanceScreen_SaveGeneral_object_System_EventArgs
 	.quad Lme_36
 
@@ -20220,7 +20220,7 @@ Lfde54_end:
 	.asciz "JustButtons.ButtonMaintenanceScreen:UpdateBorderColor"
 	.asciz "JustButtons_ButtonMaintenanceScreen_UpdateBorderColor_object_System_EventArgs"
 
-	.byte 7,200,3
+	.byte 7,201,3
 	.quad JustButtons_ButtonMaintenanceScreen_UpdateBorderColor_object_System_EventArgs
 	.quad Lme_37
 

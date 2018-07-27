@@ -294,7 +294,8 @@ namespace JustButtons
                         theButtonData.ID = (int)btnIdCounter;
                         theButtonData.BorderColour = new BorderColourData(){Red = 0, Green = 0, Blue = 105};
                         theButtonData.VidPath = "babyshark.m4v";
-                        theButtonData.ImgPath = "shark.jpg";
+                        //theButtonData.ImgPath = "shark.jpg";
+                        theButtonData.ImgPath = "defaultbuttonimg.png";
                     }
 
                     //fill the button with the button data properties
@@ -416,6 +417,8 @@ namespace JustButtons
                     //pass some of the app datas values to the button maintenance screen class
                     ButtonMaintenanceScreen.ButtonsPerPage = (int)AppData.ButtonsPerPage;
                     ButtonMaintenanceScreen.NumberOfPages = (int)AppData.NumberOfPages;
+
+
                 }
             }
         }

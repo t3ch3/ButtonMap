@@ -8,6 +8,7 @@
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/actool/_BundleResourceWithLogicalName.items
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/coremlc/_PartialAppManifest.items
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/coremlc/_BundleResourceWithLogicalName.items
+/Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/optimized/defaultbuttonimg.png
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/optimized/
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/JustButtons.csproj.CoreCompileInputs.cache
 /Users/digital3rdtester/Desktop/repos/ButtonMap/JustButtons/obj/iPhone/Release/JustButtons.exe

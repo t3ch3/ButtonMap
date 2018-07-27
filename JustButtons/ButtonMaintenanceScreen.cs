@@ -415,7 +415,8 @@ namespace JustButtons
 
             Button.BorderColour = new BorderColourData() { Red = 0, Green = 0, Blue = 105 };
             Button.VidPath = "babyshark.m4v";
-            Button.ImgPath = "shark.jpg";
+            //Button.ImgPath = "shark.jpg";
+            Button.ImgPath = "defaultbuttonimg.png";
 
             //update them
             SetImageBox();
@@ -456,7 +457,6 @@ namespace JustButtons
             Button.BorderColour = new BorderColourData() { Red = RedSlider.Value, Green = GreenSlider.Value, Blue = BlueSlider.Value };
             SetColourBox();
             SetImageBox();
-
 
             //where
             var maskingShapeLayer = new CAShapeLayer()

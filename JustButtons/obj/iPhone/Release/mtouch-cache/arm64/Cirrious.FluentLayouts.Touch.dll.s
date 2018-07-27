@@ -19743,7 +19743,7 @@ _mono_aot_file_info:
 	.long 472,6200,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0
-	.byte 118,197,137,211,150,124,177,63,159,209,27,113,60,117,39,12
+	.byte 142,137,139,66,31,175,239,46,141,221,42,105,133,10,21,190
 	.globl _mono_aot_module_Cirrious_FluentLayouts_Touch_info
 	.align 3
 _mono_aot_module_Cirrious_FluentLayouts_Touch_info:
